@@ -7,6 +7,6 @@ RUN apt-get update && apt-get install -y maven && \
 
 FROM eclipse-temurin:25-jre
 WORKDIR /app
-COPY --from=builder /app/target/*-SNAPSHOT.jar app.jar
+COPY --from=builder /app/target/*.jar app.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
