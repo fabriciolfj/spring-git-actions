@@ -31,6 +31,4 @@ jobs:
       - name: Push docker image to registry
         uses: docker/build-push-action@v5
         run: |
-          echo ${{ secrets.DOCKER_HUB_PASSWORD }} | docker login
-          - u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
-          docker tag my-java-app ${{ secrets.DOCKER_HUB_USERNAME}}/my-java-app:latest
+          echo ${{ secrets.DOCKER_HUB_PASSWORD }} | docker login - u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin docker tag my-java-app ${{ secrets.DOCKER_HUB_USERNAME}}/my-java-app:latest
